@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random-Number-Generator</title>
+</head>
+<style>
+
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: rgb(125, 175, 109);
+    font-size: 50px;
+  }
+
+  p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: rgb(55, 5, 13);
+    font-style: italic;
+    font-size: 30px;
+  }
+
+  p.message {
+    font-weight: 400;
+    color: red;
+    text-decoration: underline;
+  }
+
+  hr {
+    height: 1.5px;
+    border: none;
+    background-color: black;
+  }
+
+  button {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    border: 2px solid rgb(81, 10, 10);
+    border-radius: 7px;
+    background-color: rgb(150, 215, 115);
+    color: rgb(48, 4, 4);
+    font-size: 30px;
+  }
+
+  @media (max-width: 700px) {
+    h1 {
+      font-size: 40px;
+    }
+    p {
+      font-size: 25px;
+    }
+    button {
+      font-size: 20px;
+    }
+  }
+
+</style>
+<body>
+
+  <h1>Welcome to Random-Number-Generator</h1>
+  <hr>
+  <p id="random-number">The random number will generate here</p>
+  <button id="generate">Generate Number</button>
+  <br>
+  <button id="clear">Clear</button>
+  <p class="message">**Please hit the clear CLEAR button after getting your code**</p>
+  
+  <script>
+
+    const generate = document.getElementById("generate");
+    const randomNumber = document.getElementById("random-number");
+    const clear = document.getElementById("clear");
+    
+    clear.addEventListener("click", () => {
+      alert(`Did you remember your number is ? if you remember successfully then click OK.
+( Your code ) ${randomNumber.innerHTML}`)
+      randomNumber.innerHTML = "The random number will generate here";
+      generate.innerHTML = "Generate Number";
+    })
+
+
+    generate.addEventListener("click", () => {
+      let rand = Math.random();
+      rand *= 1000000;
+      rand = Math.floor(rand);
+      randomNumber.innerHTML = `The random number is : ${rand}`;
+      generate.innerHTML = "Generate Again";
+    })
+
+  </script>
+</body>
+</html>
